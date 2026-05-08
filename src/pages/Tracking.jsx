@@ -1,12 +1,9 @@
 import { Flex, Box, Container, Text } from '@chakra-ui/react';
-import Header from '../components/common/Header';
-import Footer from '../components/common/Footer';
 
 // Tracking page for order tracking
 const Tracking = () => {
   return (
     <Flex direction="column" minH="100vh">
-      <Header />
       
       {/* Main content area */}
       <Box flex="1" bg="gray.100" py={10}>
@@ -18,7 +15,6 @@ const Tracking = () => {
         </Container>
       </Box>
 
-      <Footer />
     </Flex>
   );
 };

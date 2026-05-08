@@ -10,7 +10,8 @@ import {
     IconButton,
     Link,
     HStack,
-    Image
+    Image,
+    useTheme
 } from '@chakra-ui/react';
 import { ArrowForwardIcon, ChevronUpIcon } from '@chakra-ui/icons';
 import locationIcon from '../../assets/icons/Icon-05.svg';
@@ -22,6 +23,7 @@ import ytIcon from '../../assets/icons/Icon-41.svg';
 
 // Footer component with contact info, links, and scroll-to-top button
 const Footer = memo(() => {
+    const theme = useTheme();
 
     // Smooth scroll back to top
     const scrollToTop = () => {
@@ -32,9 +34,12 @@ const Footer = memo(() => {
     };
 
     return(
-        <Box bg="black" color="white" pt={10} pb={5} as='footer' position="relative">
+        <Box bg="black" color="white" pt={10} pb={15} as='footer' position="relative">
             <Container maxW="6xl">
-                        <SimpleGrid columns={{base: 1, md: 3}} spacing={10}>
+                        <SimpleGrid 
+                            columns={{base: 1, md: 3}} 
+                            spacing={{ base: 8, md: 12, lg: 24 }}
+                        >
                             {/* Contact Info Section */}
                             <Stack spacing={4}>
 
@@ -42,61 +47,62 @@ const Footer = memo(() => {
                                     <Image 
                                         src="/Logo-white.svg" 
                                         alt="Vietlongfruit Logo" 
-                                        maxWidth="300px" 
+                                        maxWidth="250px" 
                                         objectFit="contain" 
-                                        ml={{ base: 0, md: -10 }} 
+                                        ml={{ base: 0, md: -10 }}
+                                        mb={-2}
                                     />
                                 </Link>
 
                                 {/* Location Info */}
                                 <HStack alignItems="flex-start">
-                                    <Image src={locationIcon} alt="Location" boxSize="20px" mt={1} />
-                                    <Text color="grey" fontSize="15px">160 Kansas City, Missouri, USA</Text>
+                                    <Image src={locationIcon} alt="Location" boxSize="15px" mt={1} />
+                                    <Text color={theme.colors.grey} fontSize="12">160 Kansas City, Missouri, USA</Text>
                                 </HStack>
 
                                 {/* Phone Info */}
                                 <HStack alignItems="center">
-                                    <Image src={phoneIcon} alt="Phone" boxSize="20px" />
-                                    <Text color="grey" fontSize="15px">00 0566 999 34 00</Text>
+                                    <Image src={phoneIcon} alt="Phone" boxSize="15px" />
+                                    <Text color={theme.colors.grey} fontSize="12">00 0566 999 34 00</Text>
                                 </HStack>
 
                                 {/* Email Info */}
                                 <HStack alignItems="center">
-                                    <Image src={emailIcon} alt="Email" boxSize="20px" />
-                                    <Text color="grey" fontSize="15px">support@vietlongfruit.com</Text>
+                                    <Image src={emailIcon} alt="Email" boxSize="15px" />
+                                    <Text color={theme.colors.grey} fontSize="12">support@vietlongfruit.com</Text>
                                 </HStack>
 
                                 {/* Social Links */}
-                                <Text fontWeight="bold" mt={2} fontSize="sm">SOCIAL CONNECT</Text>
+                                <Text mt={2} fontSize="12">SOCIAL CONNECT</Text>
 
                                 <HStack spacing={4}>
                                     <Link href="#" _hover={{ transform: 'scale(1.1)' }} transition="0.2s">
-                                        <Image src={fbIcon} alt="Facebook" boxSize="5" />
+                                        <Image src={fbIcon} alt="Facebook" boxSize="4" />
                                     </Link>
 
                                     <Link href="#" _hover={{ transform: 'scale(1.1)' }} transition="0.2s">
-                                        <Image src={twitterIcon} alt="Twitter" boxSize="5" />
+                                        <Image src={twitterIcon} alt="Twitter" boxSize="4" />
                                     </Link>
 
                                     <Link href="#" _hover={{ transform: 'scale(1.1)' }} transition="0.2s">
-                                        <Image src={ytIcon} alt="Youtube" boxSize="5" />
+                                        <Image src={ytIcon} alt="Youtube" boxSize="4" />
                                     </Link>
                                 </HStack>
                             </Stack>
 
                             {/* Essential Pages Links */}
-                            <Stack align="flex-start" mt={{ base: 8, md: 12 }}>
-                                <Text fontWeight="bold" fontSize="20px" mb={{ base: 4, md: 7 }}>Essential Pages</Text>
-                                <Link color="gray" _hover={{ color: 'yellow' }}>Contact</Link>
-                                <Link color="gray" _hover={{ color: 'yellow' }}>Service</Link>
-                                <Link color="gray" _hover={{ color: 'yellow' }}>Team</Link>
-                                <Link color="gray" _hover={{ color: 'yellow' }}>About</Link>
+                            <Stack align="flex-start" fontSize="12" mt={{ base: 6, md: 10 }}>
+                                <Text fontWeight="bold" fontSize="15px" mb={{ base: 1, md: 4 }}>Essential Pages</Text>
+                                <Link color="gray" _hover={{ color: theme.colors.yellow }}>Contact</Link>
+                                <Link color="gray" _hover={{ color: theme.colors.yellow }}>Service</Link>
+                                <Link color="gray" _hover={{ color: theme.colors.yellow }}>Team</Link>
+                                <Link color="gray" _hover={{ color: theme.colors.yellow }}>About</Link>
                             </Stack>
 
                             {/* Newsletter Signup */}
-                            <Stack align="flex-start" mt={{ base: 8, md: 12 }}>
-                                <Text fontWeight="bold" fontSize="20px" mb={{ base: 4, md: 7 }}>Get Newsletter</Text>
-                                <Text color="gray" fontSize="sm" mb={2}>
+                            <Stack align="flex-start" mt={{ base: 6, md: 10 }}>
+                                <Text fontWeight="bold" fontSize="15px" mb={{ base: 1, md: 4 }}>Get Newsletter</Text>
+                                <Text color="gray" fontSize="12" mb={2}>
                                 Want to be notified about our services. Just sign up and we'll send you a notification by email.
                                 </Text>
                                 <HStack w="full">
@@ -105,14 +111,15 @@ const Footer = memo(() => {
                                         bg="transparent"
                                         border="1px solid"
                                         borderColor="gray"
-                                        _focus={{ borderColor: 'yellow' }}
+                                        fontSize="sm"
+                                        _focus={{ borderColor: theme.colors.yellow }}
                                     />
                                     <IconButton
-                                        bg="yellow"
+                                        bg={theme.colors.yellow}
                                         color="black"
                                         aria-label="Subscribe"
                                         icon={<ArrowForwardIcon />}
-                                        _hover={{ bg: 'lightgreen' }}
+                                        _hover={{ bg: theme.colors.lightgreen }}
                                     />
                                 </HStack>
                             </Stack>
@@ -121,8 +128,8 @@ const Footer = memo(() => {
 
                         {/* Copyright Section */}
                         <Flex justifyContent="center" alignItems="center" mt={{ base: 8, md: 16 }} textAlign="center">
-                            <Text fontSize="sm" color="gray">
-                                Copyright © 2024 <Text as="span" color="yellow">Vietlongfruit</Text>. All Rights Reserved.
+                            <Text fontSize="12" color="gray">
+                                Copyright © 2024 <Text as="span" color={theme.colors.yellow}>Vietlongfruit</Text>. All Rights Reserved.
                             </Text>
                         </Flex>
                     </Container>
@@ -143,8 +150,8 @@ const Footer = memo(() => {
                         w="40px" 
                         h="40px" 
                         _hover={{
-                            color: 'lightgreen', 
-                            borderColor: 'lightgreen', 
+                            color: theme.colors.lightgreen, 
+                            borderColor: theme.colors.lightgreen, 
                             bg: 'rgba(255,255,255,0.05)' 
                         }}
                         transition="all 0.3s"

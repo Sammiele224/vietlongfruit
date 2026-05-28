@@ -1,5 +1,7 @@
 import { Box, Flex, Heading, Text, Button, VStack, Container, useTheme } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
+// 1. IMPORT ROUTER LINK: Import Link from react-router-dom and rename it to avoid conflicts
+import { Link as RouterLink } from 'react-router-dom'; 
 import heroBg from '../../assets/images/BG.jpg';
 
 const HeroBanner = () => {
@@ -37,6 +39,8 @@ const HeroBanner = () => {
                 </Box>
 
                 <Button
+                    as={RouterLink}
+                    to="/product"
                     mt={4}
                     bg="white"
                     color={theme.colors.darkgreen}
@@ -47,7 +51,7 @@ const HeroBanner = () => {
                     fontWeight={500}
                     rightIcon={<ArrowForwardIcon />}
                     _hover={{ bg: "gray.100" }}
-                    >
+                >
                     Shop Now
                 </Button>
             </VStack>

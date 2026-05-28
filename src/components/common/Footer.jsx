@@ -34,7 +34,7 @@ const Footer = memo(() => {
     };
 
     return(
-        <Box bg="black" color="white" pt={10} pb={15} as='footer' position="relative">
+        <Box bg="black" color="white" pt={10} pb={10} as='footer' position="relative">
             <Container maxW="6xl">
                         <SimpleGrid 
                             columns={{base: 1, md: 3}} 
@@ -47,10 +47,10 @@ const Footer = memo(() => {
                                     <Image 
                                         src="/Logo-white.svg" 
                                         alt="Vietlongfruit Logo" 
-                                        maxWidth="250px" 
+                                        maxWidth="200px" 
                                         objectFit="contain" 
-                                        ml={{ base: 0, md: -10 }}
-                                        mb={-2}
+                                        ml={{ base: -5, md: -5 }}
+                                        mb={3}
                                     />
                                 </Link>
 
@@ -91,8 +91,8 @@ const Footer = memo(() => {
                             </Stack>
 
                             {/* Essential Pages Links */}
-                            <Stack align="flex-start" fontSize="12" mt={{ base: 6, md: 10 }}>
-                                <Text fontWeight="bold" fontSize="15px" mb={{ base: 1, md: 4 }}>Essential Pages</Text>
+                            <Stack align="flex-start" fontSize="12" mt={{ base: 4, md: 6 }}>
+                                <Text fontWeight="bold" fontSize="15px" mb={{ base: 0, md: 5 }}>Essential Pages</Text>
                                 <Link color="gray" _hover={{ color: theme.colors.yellow }}>Contact</Link>
                                 <Link color="gray" _hover={{ color: theme.colors.yellow }}>Service</Link>
                                 <Link color="gray" _hover={{ color: theme.colors.yellow }}>Team</Link>
@@ -100,8 +100,8 @@ const Footer = memo(() => {
                             </Stack>
 
                             {/* Newsletter Signup */}
-                            <Stack align="flex-start" mt={{ base: 6, md: 10 }}>
-                                <Text fontWeight="bold" fontSize="15px" mb={{ base: 1, md: 4 }}>Get Newsletter</Text>
+                            <Stack align="flex-start" mt={{ base: 4, md: 6 }}>
+                                <Text fontWeight="bold" fontSize="15px" mb={{ base: 1, md: 5 }}>Get Newsletter</Text>
                                 <Text color="gray" fontSize="12" mb={2}>
                                 Want to be notified about our services. Just sign up and we'll send you a notification by email.
                                 </Text>

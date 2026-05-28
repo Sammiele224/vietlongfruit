@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { Box, Container, Heading, Flex, Button, SimpleGrid, Tabs, TabList, Tab, VStack } from '@chakra-ui/react';
+import { Link as RouterLink } from 'react-router-dom'; 
+
 import ProductCard from '../common/ProductCard';
 import leafIcon from '../../assets/icons/Icon-17.svg';
 import footerMap from '../../assets/images/footer-map.png';
 import customArrowIcon from '../../assets/icons/Icon-42.svg';
 
-// Product data array with categorization for filtering
 const products = [
   { id: 1, name: "Passion Fruit", category: "Seasonal", image: "/src/assets/images/Layer-58.jpg" },
   { id: 2, name: "Pomelo",        category: "Featured", image: "/src/assets/images/Layer-40.jpg" },
@@ -32,7 +33,7 @@ const ProductSection = () => {
   return (
     <Box bg="bgLight" py={{ base: 20, md: 40 }} overflow="hidden" position="relative">
         
-        {/* BACKGROUND MAP IMAGE: Positioned absolutely behind the content */}
+        {/* BACKGROUND MAP IMAGE */}
         <Box
             as="img"
             src={footerMap}
@@ -48,7 +49,7 @@ const ProductSection = () => {
             maxW="100%" 
             maxH="100%" 
             objectFit="contain" 
-            opacity={0.3} 
+            opacity={1} 
             pointerEvents="none"
             userSelect="none"
             display="block"
@@ -69,7 +70,7 @@ const ProductSection = () => {
                     h={{ base: "20px", md: "30px" }}
                     w="auto"
                     display="block"
-                    transform={{ base: "translateY(-8px)", md: "translateY(-13px)" }}
+                    transform={{ base: "translate(-10px, -15px)", lg: "translate(-15px, -20px)" }}
                 />
             </Flex>
 
@@ -109,11 +110,13 @@ const ProductSection = () => {
         {/* "SHOW ALL" ACTION BUTTON */}
         <Flex justify="center" mt={{ base: 12, md: 20 }}>
           <Button 
+            as={RouterLink}
+            to="/product"
             rightIcon={
               <Box 
                 as="img" 
                 src={customArrowIcon} 
-                w={{ base: "10px", md: "12px" }} // Scaled down for mobile devices
+                w={{ base: "10px", md: "12px" }}
                 h="auto" 
               />
             }
@@ -121,10 +124,10 @@ const ProductSection = () => {
             bg="buttonGreen"
             color="white" 
             fontWeight={600} 
-            fontSize={{ base: "14px", md: "16px" }} // Increased for mobile readability
-            h={{ base: "48px", md: "56px" }} // Explicit heights for better button proportions
+            fontSize={{ base: "14px", md: "16px" }} 
+            h={{ base: "48px", md: "56px" }} 
             px={{ base: 8, md: 10 }} 
-            w={{ base: "80%", sm: "auto" }} // Wide on mobile, auto-width on tablet/desktop
+            w={{ base: "80%", sm: "auto" }}
             borderRadius="full" 
             transition="all 0.2s"
             _hover={{ bg: "buttonGreenHover" }}

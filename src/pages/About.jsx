@@ -1,18 +1,37 @@
-import { Flex, Box } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
+
+import ProductHero from '../components/product/ProductHero';
+
+import TestimonialSection from '../components/product/TestimonialSection';
+import ValuesSection from '../components/home/ValuesSection';
+import CSRSection from '../components/about/CSRSection';
 import TeamSection from '../components/about/TeamSection';
+import HealthyDiet from '../components/about/HealthyDiet';
 
-// About page with team information
+import aboutBanner from '../assets/images/BG-01.jpg'; 
+
 const About = () => {
-  return (
-    <Flex direction="column" minH="100vh">
-      
-      {/* Main content area */}
-      <Box flex="1" bg="gray.100">
-        <TeamSection />
-      </Box>
+    return (
+        <Box bg="white">
+            
+            <ProductHero 
+                title="About Us" 
+                pageName="About Us" 
+                bgImage={aboutBanner} 
+            />
+            
+            <ValuesSection /> 
 
-    </Flex>
-  );
+            <CSRSection /> 
+
+            <TeamSection />
+
+            <HealthyDiet /> 
+
+            <TestimonialSection />
+
+        </Box>
+    );
 };
 
 export default About;

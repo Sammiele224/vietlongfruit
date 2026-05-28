@@ -1,26 +1,40 @@
-// src/App.jsx
-import { Flex, Box, useTheme } from '@chakra-ui/react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useTheme } from '@chakra-ui/react';
+import theme from './theme'; // Importing the theme.js file I saw in your folder!
+
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 
-// Nhớ import file Home vào nhé (Kiểm tra lại xem chữ Home viết hoa hay thường cho đúng thư mục của bạn)
 import Home from './pages/Home'; 
+import ProductDetail from './pages/ProductDetail';
+import Product from './pages/Product';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Certificate from './pages/Certificate';
+import Tracking from './pages/Tracking';
 
 function App() {
-  const theme = useTheme();
   
   return (
-    <Flex direction="column" minH="100vh">
-      <Header />
-      
-      {/* Box này BẮT BUỘC phải có flex="1" để giãn ra đẩy Footer xuống */}
-      <Box flex="1" bg={theme.colors.bgLight}> 
-         {/* Nhét toàn bộ nội dung của trang chủ vào đây */}
-         <Home />
-      </Box>
+    <Router>
+      {/* Global Header appears on all pages */}
+      <Header /> 
 
+      {/* Routes decides WHICH page to show based on the URL */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/product" element={<Product />} />
+        {/* The Child Page: Shows the specific fruit based on the ID */}
+        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/certificate" element={<Certificate />} />
+        <Route path="/tracking" element={<Tracking />} />
+      </Routes>
+
+      {/* Global Footer appears on all pages */}
       <Footer />
-    </Flex>
+    </Router>
   );
 }
 export default App;

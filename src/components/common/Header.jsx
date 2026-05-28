@@ -1,4 +1,6 @@
 import { useState, useEffect, memo, useCallback } from 'react';
+// 1. MODIFIED: Imported useNavigate from react-router-dom to handle page redirection
+import { useNavigate } from 'react-router-dom'; 
 import { 
     Flex, 
     HStack, 
@@ -26,9 +28,11 @@ import projectBg from '../../assets/images/project-bg.png';
 
 const Header = memo(() => {
     const theme = useTheme();
+    // 2. MODIFIED: Initialized the navigate function
+    const navigate = useNavigate(); 
+    
     const [isScrolled, setIsScrolled] = useState(false);
     
-    // Rename the hooks to handle both the Menu and the Search overlay separately
     const { 
         isOpen: isMenuOpen, 
         onOpen: onMenuOpen, 
@@ -50,17 +54,26 @@ const Header = memo(() => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [handleScroll]);
 
-    const navItems = ['Home', 'Product', 'Contact', 'About Us', 'Certificate', 'Tracking'];
+    const navItems = [
+        { label: 'Home', path: '/' },
+        { label: 'Product', path: '/product' },
+        { label: 'Contact', path: '/contact' },
+        { label: 'About Us', path: '/about' },
+        { label: 'Certificate', path: '/certificate' },
+        { label: 'Tracking', path: '/tracking' }
+    ];
 
-    // Placeholder function for when the user actually hits Enter
+    // 3. MODIFIED: Updated the search logic to navigate to the product page with the query
     const handleSearchSubmit = (e) => {
         if (e.key === 'Enter') {
-            const searchQuery = e.target.value;
-            console.log("Searching for:", searchQuery);
-            // Add your actual search logic/routing here
+            // Get the value, remove extra spaces, and convert to lowercase for case-insensitive search
+            const searchQuery = e.target.value.trim().toLowerCase();
             
-            // Optionally close the drawer after searching
-            onSearchClose(); 
+            if (searchQuery) {
+                // Navigate to the Product page and append the search keyword as a URL parameter
+                navigate(`/product?search=${encodeURIComponent(searchQuery)}`);
+                onSearchClose(); 
+            }
         }
     };
 
@@ -72,24 +85,25 @@ const Header = memo(() => {
                 top={0}
                 zIndex={999}
                 w="full" 
-                h={{ base: "50px", md: "70px" }}
+                minH={{ base: "60px", md: "65px" }} 
+                mb="-1px"
                 bg={isScrolled ? "rgba(0, 0, 0, 0.3)" : "black"}
                 backdropFilter={isScrolled ? "blur(15px)" : "none"}
                 transition="all 0.3s ease-in-out"
                 color="white"
-                py={3}
+                py={2}
                 px={{ base: 4, md: 8 }}
                 justifyContent="space-between"
                 alignItems="center"
             >
                 {/* Logo */}
-                <Link href="/">
+                <Link href="/" display="flex" alignItems="center">
                     <Image
                         src="/Logo-white.svg"
                         alt="vietlongfruit logo"
                         w={{ base: "160px", md: "220px" }}
+                        maxH={{ base: "30px", md: "30px" }} 
                         objectFit="contain"
-                        mt={{ base: 0, md: -1, lg: -2 }}
                     />
                 </Link>
 
@@ -103,15 +117,14 @@ const Header = memo(() => {
                     transform="translateX(-50%)"
                 >
                     {navItems.map((item) => (
-                        <Link key={item} whiteSpace="nowrap" _hover={{ color: theme.colors.yellow, textDecoration: 'none' }}>
-                            {item}
+                        <Link key={item.label} href={item.path} whiteSpace="nowrap" _hover={{ color: theme.colors.yellow, textDecoration: 'none' }}>
+                            {item.label}
                         </Link>
                     ))}
                 </HStack>
 
                 {/* Right Side Icons */}
                 <HStack spacing={4}>
-                    {/* Search Icon - Now triggers onSearchOpen */}
                     <SearchIcon 
                         w={5} 
                         h={5} 
@@ -135,7 +148,7 @@ const Header = memo(() => {
                 </HStack>
             </Flex>
 
-            {/* 1. SEARCH OVERLAY DRAWER */}
+            {/* SEARCH OVERLAY DRAWER */}
             <Drawer placement="top" onClose={onSearchClose} isOpen={isSearchOpen} size="md">
                 <DrawerOverlay bg="blackAlpha.600" />
                 <DrawerContent bg="white" color="black" py={12} borderBottomRadius="md">
@@ -155,7 +168,7 @@ const Header = memo(() => {
                                     borderColor="gray.300"
                                     focusBorderColor="black"
                                     autoFocus
-                                    onKeyDown={handleSearchSubmit}
+                                    onKeyDown={handleSearchSubmit} // Trigger search on Enter
                                 />
                                 <InputRightElement>
                                     <SearchIcon color="black" w={5} h={5} />
@@ -166,7 +179,7 @@ const Header = memo(() => {
                 </DrawerContent>
             </Drawer>
 
-            {/* 2. MOBILE MENU DRAWER (From previous step) */}
+            {/* MOBILE MENU DRAWER */}
             <Drawer placement="right" onClose={onMenuClose} isOpen={isMenuOpen} size="xs">
                 <DrawerOverlay />
                 <DrawerContent 
@@ -182,8 +195,9 @@ const Header = memo(() => {
                     <DrawerBody pt={16} px={0}>
                         <VStack align="start" spacing={0} w="full">
                             {navItems.map((item) => (
-                                <Box key={item} w="full">
+                                <Box key={item.label} w="full">
                                     <Link
+                                        href={item.path}
                                         display="block"
                                         py={4}
                                         px={8}
@@ -191,7 +205,7 @@ const Header = memo(() => {
                                         fontWeight="normal"
                                         _hover={{ color: theme.colors.darkgreen, textDecoration: 'none', bg: 'gray.50' }}
                                     >
-                                        {item}
+                                        {item.label}
                                     </Link>
                                     <Divider borderColor="gray.100" />
                                 </Box>

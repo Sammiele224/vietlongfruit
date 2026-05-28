@@ -1,18 +1,25 @@
 import { Flex, Box, Container, Text } from '@chakra-ui/react';
 
-// Certificate page with certification details
+import ProductHero from '../components/product/ProductHero';
+
+import aboutBanner from '../assets/images/BG-04.jpg'; // Replace with your actual image path!
+
+
+
 const Certificate = () => {
   return (
     <Flex direction="column" minH="100vh">
       
       {/* Main content area */}
-      <Box flex="1" bg="gray.100" py={10}>
-        <Container maxW="6xl">
-          <Text fontSize="2xl" fontWeight="bold" mb={6}>
-            Certifications
-          </Text>
+      <Box>
+
+        <ProductHero 
+                title="Certificate" 
+                pageName="Certificate" // This cleanly replaces "Product" in the breadcrumbs!
+                bgImage={aboutBanner} 
+            />
           {/* Certificate content goes here */}
-        </Container>
+  
       </Box>
 
     </Flex>

@@ -9,7 +9,7 @@ const Home = () => {
   const theme = useTheme();
   
   return (
-    <Flex direction="column" minH="100vh">
+    <Flex direction="column" minH="100vh" w="full" overflowX="hidden">
       
       {/* Main content area - stretches to push footer down */}
       <Box flex="1" bg={theme.colors.bgLight}>

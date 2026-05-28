@@ -1,0 +1,47 @@
+/* src/index.css */
+
+/* Hiệu ứng con lăn chuột trượt xuống */
+@keyframes scrollDown {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(15px); opacity: 0; }
+}
+
+/* Độ dày 400 - Dùng cho văn bản bình thường (Body text) */
+@font-face {
+  font-family: 'Spartan';
+  src: url('./assets/fonts/SPARTAN-REGULAR.TTF') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Độ dày 500 - Dùng cho các text cần nhấn mạnh nhẹ */
+@font-face {
+  font-family: 'Spartan';
+  src: url('./assets/fonts/SPARTAN-MEDIUM.TTF') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Độ dày 600 - Dùng cho Menu, Nút bấm (Button) */
+@font-face {
+  font-family: 'Spartan';
+  src: url('./assets/fonts/SPARTAN-SEMIBOLD.TTF') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Độ dày 700 - Dùng cho Tiêu đề (Heading, Footer Titles) */
+@font-face {
+  font-family: 'Spartan';
+  src: url('./assets/fonts/SPARTAN-BOLD.TTF') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Độ dày 900 - Dùng cho Logo chữ hoặc chữ cần CỰC KỲ đậm */
+@font-face {
+  font-family: 'Spartan';
+  src: url('./assets/fonts/SPARTAN-BLACK.TTF') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}

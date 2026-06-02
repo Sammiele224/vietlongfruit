@@ -29,6 +29,10 @@ const Information = ({ product }) => {
     // 2. LOGIC: Check if both options are selected to enable the button
     const isReadyToQuote = selectedSeason && selectedBox;
 
+    // 3. OPTIONS ARRAYS: Easily add or remove options here!
+    const seasonOptions = ['Whole year', 'Seasonal']; // Bạn có thể thêm 'Spring', 'Summer' vào đây tuỳ ý
+    const boxOptions = ['Box 2kg', 'Loosed', 'Tray 500gr x 4', 'Tray 1000gr x 2'];
+
     if (!product) return null;
 
     return (
@@ -61,7 +65,7 @@ const Information = ({ product }) => {
 
             {/* --- SHORT DESCRIPTION --- */}
             <Text color="gray.500" fontSize={{ base: "sm", md: "md" }} lineHeight="1.8" w="full" textAlign="left">
-                {product.description || "The Anti Slip Studio Socks offer comfort and reliability in the studio. A silicone grip sole and internal silicone grip offer full support during your entire studio workou."}
+                {product.description || "Enjoy the freshest, hand-picked fruits sourced directly from our sustainable eco-gardens. Naturally clean and packed with essential nutrients, our premium fruits guarantee the best taste and quality for your healthy lifestyle."}
             </Text>
 
             {/* --- PACKING DETAILS (Interactive Options) --- */}
@@ -78,7 +82,7 @@ const Information = ({ product }) => {
 
                 <Flex direction={{ base: "column", md: "row" }} gap={{ base: 6, md: 10 }}>
                     
-                    {/* SEASON COLUMN */}
+                    {/* SEASON COLUMN - NOW A SELECTABLE LIST */}
                     <VStack 
                         align="flex-start" 
                         spacing={2} 
@@ -86,29 +90,26 @@ const Information = ({ product }) => {
                         borderRight={{ base: "none", md: "0.1px solid" }} 
                         borderColor="gray.300"
                     >
-                        <Text fontWeight={700} color="darkgreen" fontSize="sm" whiteSpace="nowrap">Season</Text>
-                        
-                        {/* Interactive Option */}
-                        <Text 
-                            color={selectedSeason === 'Whole year' ? "darkgreen" : "gray.400"} 
-                            fontWeight={selectedSeason === 'Whole year' ? 500 : 400}
-                            fontSize="sm"
-                            cursor="pointer"
-                            whiteSpace={{ base: "normal", md: "nowrap" }} 
-                            transition="all 0.2s"
-                            onClick={() => setSelectedSeason('Whole year')}
-                            _hover={{ color: "darkgreen" }}
-                        >
-                            Whole year
-                        </Text>
+                        {seasonOptions.map((opt) => (
+                            <Text 
+                                key={opt}
+                                color={selectedSeason === opt ? "darkgreen" : "gray.400"} 
+                                fontWeight={selectedSeason === opt ? 500 : 400}
+                                fontSize="sm"
+                                cursor="pointer"
+                                whiteSpace={{ base: "normal", md: "nowrap" }} 
+                                transition="all 0.2s"
+                                onClick={() => setSelectedSeason(opt)}
+                                _hover={{ color: "darkgreen" }}
+                            >
+                                {opt}
+                            </Text>
+                        ))}
                     </VStack>
 
                     {/* BOX COLUMN */}
-                    <VStack align="flex-start" spacing={2}>
-                        <Text fontWeight={700} color="darkgreen" fontSize="sm" >Box 2kg</Text>
-                        
-                        {/* Map through interactive options */}
-                        {['Loosed', 'Tray 500gr x 4', 'Tray 1000gr x 2'].map((opt) => (
+                    <VStack align="flex-start" spacing={2}>                        
+                        {boxOptions.map((opt) => (
                             <Text 
                                 key={opt}
                                 color={selectedBox === opt ? "darkgreen" : "gray.400"} 

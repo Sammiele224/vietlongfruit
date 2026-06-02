@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Box, Container, Flex, Heading, Text, IconButton, useTheme } from '@chakra-ui/react';
-import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'; // ADDED IMPORTS
+import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'; 
+
 import projectBg from '../../assets/images/project-bg.png';
 import leafIcon from '../../assets/icons/Icon-17.svg';
 
@@ -84,11 +85,10 @@ const ValuesSection = () => {
           </Box>
 
           <Box w={{ base: "full", md: "55%" }}>
-            <Text color="gray.500" fontSize="md" lineHeight="tall" fontWeight={400}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              Duis aute irure dolor in reprehenderit.
+            <Text color="gray.500" fontSize="lg" lineHeight="tall" fontWeight={400}>
+              Welcome to Vietlongfruit, where nature’s finest fruits meet global markets. We are 
+              a premier fruit exporting company committed to delivering only the  highest quality 
+              produce sourced from sustainable and innovative farms.
             </Text>
           </Box>
         </Flex>

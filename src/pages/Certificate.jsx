@@ -1,8 +1,10 @@
 import { Flex, Box, Container, Text } from '@chakra-ui/react';
 
 import ProductHero from '../components/product/ProductHero';
+import CertificateIntro from '../components/certificate/CertificateIntro';
+import CertificateGrid from '../components/certificate/CertificateGrid';
 
-import aboutBanner from '../assets/images/BG-04.jpg'; // Replace with your actual image path!
+import aboutBanner from '../assets/images/BG-04.jpg'; 
 
 
 
@@ -14,11 +16,16 @@ const Certificate = () => {
       <Box>
 
         <ProductHero 
-                title="Certificate" 
-                pageName="Certificate" // This cleanly replaces "Product" in the breadcrumbs!
-                bgImage={aboutBanner} 
-            />
-          {/* Certificate content goes here */}
+            title="Certificate" 
+            pageName="Certificate" 
+            bgImage={aboutBanner} 
+        />
+          
+        {/* 2. Intro Section (Trophy & Text) */}
+        <CertificateIntro />
+
+        {/* 3. Document Grid Section */}
+        <CertificateGrid /> 
   
       </Box>
 

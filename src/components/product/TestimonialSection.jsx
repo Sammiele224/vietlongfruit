@@ -9,7 +9,8 @@ import {
     Heading, 
     Image, 
     Icon,
-    Collapse 
+    Collapse,
+    Avatar // 1. IMPORTED: Added Avatar from Chakra UI
 } from '@chakra-ui/react';
 
 import leafIcon from '../../assets/icons/Icon-17.svg'; 
@@ -19,35 +20,32 @@ import projectBg from '../../assets/images/project-bg.png';
 const testimonials = [
     {
         id: 1,
-        name: "Oliver",
-        location: "West of Dallas, Austin",
-        avatar: "https://randomuser.me/api/portraits/men/32.jpg", 
+        name: "Hoang Dung",
+        location: "Ho Chi Minh City, Vietnam",
         rating: 5,
         heading: "I had an extraordinary experience!",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        text: "I tried the dragon fruit and it was absolutely phenomenal. The freshness and taste were like nothing I’ve ever had before. Highly recommend!"
     },
     {
         id: 2,
-        name: "Isabella",
-        location: "West of Dallas, Austin",
-        avatar: "https://randomuser.me/api/portraits/women/44.jpg", 
+        name: "Truong Thuy",
+        location: "Buon Me Thuot, Vietnam",
         rating: 5,
         heading: "Absolutely the freshest fruit!",
-        text: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. The delivery was fast, and the packaging kept everything in perfect condition. Highly recommend the dragon fruit and rambutan!"
+        text: "The service was amazing and the fruits were fresh and tasty."
     },
     {
         id: 3,
-        name: "Charlotte",
-        location: "West of Dallas, Austin",
-        avatar: "https://randomuser.me/api/portraits/women/68.jpg", 
+        name: "Kim Hanh",
+        location: "Hanoi, Vietnam",
         rating: 5,
         heading: "Great customer service and quality.",
-        text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. The seasonal fruits are always perfectly ripe when they arrive. I will definitely be ordering again next month."
+        text: "Loved the packaging and quick delivery. Will buy again!"
     }
 ];
 
 const TestimonialSection = () => {
-    // 2. STATE: Track which review is currently being displayed (defaults to 0, which is Oliver)
+    // 2. STATE: Track which review is currently being displayed (defaults to 0)
     const [activeIndex, setActiveIndex] = useState(0);
 
     // Grab the active testimonial object based on the state
@@ -128,7 +126,9 @@ const TestimonialSection = () => {
                                         boxShadow={isActive ? "xl" : "none"}
                                         _hover={{ bg: isActive ? "white" : "gray.50" }}
                                     >
-                                        <Image src={customer.avatar} boxSize="50px" borderRadius="full" objectFit="cover" />
+                                        {/* 2. REPLACED IMAGE WITH AVATAR: This creates a clean, gender-neutral user silhouette */}
+                                        <Avatar boxSize="50px" bg="gray.100" color="gray.400" />
+                                        
                                         <Box>
                                             <Text fontWeight="bold" color="darkgreen" fontSize="md" lineHeight="1.2">
                                                 {customer.name}
@@ -204,7 +204,10 @@ const TestimonialSection = () => {
                                     const isActive = activeIndex === index;
                                     return (
                                         <Flex key={customer.id} onClick={() => setActiveIndex(index)} w="100%" align="center" gap={4} p={4} borderRadius="xl" cursor="pointer" transition="all 0.3s" bg={isActive ? "white" : "transparent"} boxShadow={isActive ? "xl" : "none"} _hover={{ bg: isActive ? "white" : "gray.50" }}>
-                                            <Image src={customer.avatar} boxSize="50px" borderRadius="full" objectFit="cover" />
+                                            
+                                            {/* 3. REPLACED IMAGE WITH AVATAR HERE TOO */}
+                                            <Avatar boxSize="50px" bg="gray.100" color="gray.400" />
+                                            
                                             <Box>
                                                 <Text fontWeight="bold" color="darkgreen" fontSize="md" lineHeight="1.2">{customer.name}</Text>
                                                 <Text color="gray.400" fontSize="xs">{customer.location}</Text>

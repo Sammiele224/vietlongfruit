@@ -3,23 +3,11 @@ import { Box, Container, Heading, Flex, Button, SimpleGrid, Tabs, TabList, Tab, 
 import { Link as RouterLink } from 'react-router-dom'; 
 
 import ProductCard from '../common/ProductCard';
+import { products } from '../../data/products';
+import { PRODUCT_CATEGORIES } from '../../constants/navigation';
 import leafIcon from '../../assets/icons/Icon-17.svg';
 import footerMap from '../../assets/images/footer-map.png';
 import customArrowIcon from '../../assets/icons/Icon-42.svg';
-
-const products = [
-  { id: 1, name: "Passion Fruit", category: "Seasonal", image: "/src/assets/images/Layer-58.jpg" },
-  { id: 2, name: "Pomelo",        category: "Featured", image: "/src/assets/images/Layer-40.jpg" },
-  { id: 3, name: "Rambutan",      category: "Seasonal", image: "/src/assets/images/Layer-92.jpg" },
-  { id: 4, name: "Dragon Fruit",  category: "Featured", image: "/src/assets/images/Layer-56.svg" },
-  { id: 5, name: "Durian",        category: "Seasonal", image: "/src/assets/images/Layer-75.jpg" },
-  { id: 6, name: "Bell Fruit",    category: "Featured", image: "/src/assets/images/Layer-73.jpg" },
-  { id: 7, name: "Mangosteen",    category: "Seasonal", image: "/src/assets/images/Layer-72.svg" },
-  { id: 8, name: "Milk Fruit",    category: "Featured", image: "/src/assets/images/Layer-74.jpg" },
-];
-
-// Defined categories for the filter tabs
-const categories = ["All", "Featured", "Seasonal"];
 
 const ProductSection = () => {
   // State to track the currently selected filter tab
@@ -77,7 +65,7 @@ const ProductSection = () => {
             {/* CATEGORY FILTER MENU */}
             <Tabs variant="unstyled" mb={10}>
                 <TabList gap={{ base: 2, md: 4 }}>
-                    {categories.map((cat) => (
+                    {PRODUCT_CATEGORIES.map((cat) => (
                     <Tab 
                         key={cat}
                         onClick={() => setActiveCategory(cat)}

@@ -12,19 +12,19 @@ const ContactCards = () => {
             id: 1,
             icon: emailIcon,
             title: "Email",
-            info: "Support@vietlongfruit.com"
+            info: "sales@vietlongfruit.com"
         },
         {
             id: 2,
             icon: phoneIcon,
             title: "Phone",
-            info: "00 0566 999 34 00"
+            info: "086 582 7835"
         },
         {
             id: 3,
             icon: locationIcon,
             title: "Address",
-            info: "66 Kansas City, Missouri, USA"
+            info: "9 Phan Ngu, Da Kao Ward, District 1"
         }
     ];
 

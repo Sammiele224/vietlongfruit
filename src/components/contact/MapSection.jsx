@@ -12,7 +12,7 @@ const MapSection = () => {
                   for your specific address!
                 */}
                 <Link 
-                    href="https://www.google.com/maps/place/Kansas+City,+MO" 
+                    href="https://maps.app.goo.gl/1wBPWr4RfRFg8juE8" 
                     isExternal // Opens in a new tab
                     _hover={{ opacity: 0.9 }} // Slight fade effect on hover so they know it's clickable
                     display="block"

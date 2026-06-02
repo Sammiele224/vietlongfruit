@@ -1,37 +1,19 @@
-import { useState, useEffect, memo, useCallback } from 'react';
-// 1. MODIFIED: Imported useNavigate from react-router-dom to handle page redirection
+import { memo } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import { 
-    Flex, 
-    HStack, 
-    Link, 
-    Image, 
-    IconButton, 
-    useDisclosure, 
-    Drawer, 
-    DrawerBody, 
-    DrawerOverlay, 
-    DrawerContent, 
-    DrawerCloseButton, 
-    VStack, 
-    Box, 
-    Divider,
-    Input,
-    InputGroup,
-    InputRightElement,
-    Heading,
-    Center,
-    useTheme
+    Flex, HStack, Link, Image, IconButton, useDisclosure, Drawer, 
+    DrawerBody, DrawerOverlay, DrawerContent, DrawerCloseButton, 
+    VStack, Box, Input, InputGroup, InputRightElement, useTheme,
+    Heading, Center, Divider
 } from "@chakra-ui/react";
 import { SearchIcon, HamburgerIcon } from "@chakra-ui/icons";
-import projectBg from '../../assets/images/project-bg.png';
+import { useScrollListener } from '../../hooks/useScrollListener';
+import { NAV_ITEMS } from '../../constants/navigation';
 
 const Header = memo(() => {
     const theme = useTheme();
-    // 2. MODIFIED: Initialized the navigate function
     const navigate = useNavigate(); 
-    
-    const [isScrolled, setIsScrolled] = useState(false);
+    const isScrolled = useScrollListener();
     
     const { 
         isOpen: isMenuOpen, 
@@ -44,24 +26,6 @@ const Header = memo(() => {
         onOpen: onSearchOpen, 
         onClose: onSearchClose 
     } = useDisclosure();
-
-    const handleScroll = useCallback(() => {
-        setIsScrolled(window.scrollY > 50);
-    }, []);
-
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, [handleScroll]);
-
-    const navItems = [
-        { label: 'Home', path: '/' },
-        { label: 'Product', path: '/product' },
-        { label: 'Contact', path: '/contact' },
-        { label: 'About Us', path: '/about' },
-        { label: 'Certificate', path: '/certificate' },
-        { label: 'Tracking', path: '/tracking' }
-    ];
 
     // 3. MODIFIED: Updated the search logic to navigate to the product page with the query
     const handleSearchSubmit = (e) => {
@@ -116,7 +80,7 @@ const Header = memo(() => {
                     left="50%"
                     transform="translateX(-50%)"
                 >
-                    {navItems.map((item) => (
+                    {NAV_ITEMS.map((item) => (
                         <Link key={item.label} href={item.path} whiteSpace="nowrap" _hover={{ color: theme.colors.yellow, textDecoration: 'none' }}>
                             {item.label}
                         </Link>
@@ -182,19 +146,12 @@ const Header = memo(() => {
             {/* MOBILE MENU DRAWER */}
             <Drawer placement="right" onClose={onMenuClose} isOpen={isMenuOpen} size="xs">
                 <DrawerOverlay />
-                <DrawerContent 
-                    bg="white" 
-                    color="black"
-                    backgroundImage={`url(${projectBg})`}
-                    backgroundPosition="bottom center"
-                    backgroundRepeat="no-repeat"
-                    backgroundSize="contain"
-                >
+                <DrawerContent bg="white" color="black">
                     <DrawerCloseButton size="lg" mt={2} mr={2} color="gray.400" />
                     
                     <DrawerBody pt={16} px={0}>
                         <VStack align="start" spacing={0} w="full">
-                            {navItems.map((item) => (
+                            {NAV_ITEMS.map((item) => (
                                 <Box key={item.label} w="full">
                                     <Link
                                         href={item.path}

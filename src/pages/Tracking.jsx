@@ -8,8 +8,8 @@ const Tracking = () => {
       {/* Main content area */}
       <Box flex="1" bg="gray.100" py={10}>
         <Container maxW="6xl">
-          <Text fontSize="2xl" fontWeight="bold" mb={6}>
-            Order Tracking
+          <Text fontSize="2xl" fontWeight={400} mb={6} align="center">
+            Coming soon:333
           </Text>
           {/* Tracking content goes here */}
         </Container>

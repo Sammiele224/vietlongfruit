@@ -1,26 +1,10 @@
-import { useState, useEffect } from 'react';
 import { Box, Flex, Heading, Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
+import { useCarousel } from '../../hooks/useCarousel';
 
 const ProductHero = ({ title = "Product", bgImage, productName, pageName = "Product" }) => {
-    // Setup state for the carousel
-    const [currentSlide, setCurrentSlide] = useState(0);
-
-    // Determine if we are using a carousel (array) or a static image (string)
     const isCarousel = Array.isArray(bgImage);
-
-    // Auto-play logic: Change slide every 5 seconds, ONLY if it's a carousel
-    useEffect(() => {
-        if (!isCarousel) return; // Do nothing if it's a static image
-
-        const timer = setInterval(() => {
-            setCurrentSlide((prevSlide) => 
-                prevSlide === bgImage.length - 1 ? 0 : prevSlide + 1
-            );
-        }, 5000); // 5000ms = 5 seconds
-
-        return () => clearInterval(timer); // Cleanup timer to prevent memory leaks
-    }, [isCarousel, bgImage]);
+    const currentSlide = useCarousel(isCarousel ? bgImage.length : 1, isCarousel);
 
     return (
         <Box 

@@ -77,7 +77,7 @@ const TeamSection = () => {
                 >
                     
                     {/* LEFT SIDE: Text Content */}
-                    <Box w={{ base: "100%", md: "50%" }}>
+                    <Box w={{ base: "100%", md: "55%" }}>
                         <Heading 
                             color="white" 
                             fontSize={{ base: "4xl", md: "4xl"}} 
@@ -88,10 +88,9 @@ const TeamSection = () => {
                         </Heading>
                         
                         <Text color="whiteAlpha.900" fontSize={{ base: "sm", md: "sm" }} lineHeight="1.8">
-                            vietlongfruit is a dynamic and growing company. By working with us, you'll have the opportunity to 
-                            develop quickly in a supportive, family-oriented environment. Currently, we have no open positions, 
-                            but if you share our values and are passionate about contributing to our success, we invite you to send 
-                            your CV and cover letter to vlf@vietlongfruit.com.vn.
+                            Vietlongfruit is a diverse, growing company, working with us to shape the opportunity to develop
+                            your career in a meaningful way. Currently, we have new positions, but if you don’t see a role
+                            that matches your skills, please send us your CV and cover letter.
                         </Text>
                     </Box>
 

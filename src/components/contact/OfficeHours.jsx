@@ -53,7 +53,7 @@ const OfficeHours = () => {
                             </Heading>
                             
                             <Text color="gray.500" fontSize={{ base: "md", md: "md" }} mb={8} lineHeight="1.8" pr={{ md: 8 }}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                We’re always happy to welcome you to our facility. Kindly contact us in advance to schedule your visit.
                             </Text>
                             
                             <Button 
@@ -78,7 +78,7 @@ const OfficeHours = () => {
                         */}
                         <Box 
                             w={{ base: "100%", md: "50%" }} 
-                            display={{ base: "none", md: "flex" }} // <--- CHÌA KHÓA NẰM Ở ĐÂY
+                            display={{ base: "none", md: "flex" }} 
                             justifyContent={{ base: "center", md: "flex-end" }}
                         >
                             
@@ -119,17 +119,17 @@ const OfficeHours = () => {
                                     <VStack spacing={6} pt={4}> 
                                         <Box>
                                             <Text fontWeight={700} fontSize="lg" mb={1}>Monday - Friday</Text>
-                                            <Text fontSize="sm" color="whiteAlpha.900">9am - 5pm</Text>
+                                            <Text fontSize="sm" color="whiteAlpha.900">8am - 6pm</Text>
                                         </Box>
                                         
                                         <Box>
-                                            <Text fontWeight={700} fontSize="lg" mb={1}>Saturdays</Text>
-                                            <Text fontSize="sm" color="whiteAlpha.900">11am - 5pm</Text>
-                                        </Box>
-                                        
-                                        <Box>
-                                            <Text fontWeight={700} fontSize="lg" mb={1}>Sundays</Text>
+                                            <Text fontWeight={700} fontSize="lg" mb={1}>Saturday</Text>
                                             <Text fontSize="sm" color="whiteAlpha.900">9am - 3pm</Text>
+                                        </Box>
+                                        
+                                        <Box>
+                                            <Text fontWeight={700} fontSize="lg" mb={1}>Sunday</Text>
+                                            <Text fontSize="sm" color="whiteAlpha.900">Closed</Text>
                                         </Box>
                                     </VStack>
                                 </Box>

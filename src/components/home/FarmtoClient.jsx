@@ -11,11 +11,11 @@ import icon5 from '../../assets/icons/Icon-36.svg';
 import icon6 from '../../assets/icons/Icon-44.png';
 
 const processData = [
-  { id: 1, title: "Demo Title 01", desc: "Lorem ipsum dolor, consadipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.", icon: icon1, top: "32%", left: "24%", customTextPos: true, textTop: "-105px", textLeft: "-100px"},
-  { id: 2, title: "Demo Title 02", desc: "Lorem ipsum dolor, consadipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.", icon: icon2, top: "24%", left: "39%", customTextPos: true, textTop: "-105px", textLeft: "10px"},
-  { id: 3, title: "Demo Title 03", desc: "Lorem ipsum dolor, consadipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.", icon: icon3, top: "34%", left: "55%" },
-  { id: 4, title: "Demo Title 04", desc: "Lorem ipsum dolor, consadipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.", icon: icon4, top: "55%", left: "60%" },
-  { id: 5, title: "Demo Title 05", desc: "Lorem ipsum dolor, consadipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.", icon: icon5, top: "78%", left: "54%" },
+  { id: 1, title: "Hygienic Washing & Sorting", desc: "Freshly harvested produce is thoroughly washed and sorted, ensuring only the highest quality items progress.", icon: icon1, top: "32%", left: "24%", customTextPos: true, textTop: "-105px", textLeft: "-100px"},
+  { id: 2, title: "Sustainable Cultivation", desc: "Using responsible farming methods to nurture healthy, nutritious crops with minimal environmental footprint.", icon: icon2, top: "24%", left: "39%", customTextPos: true, textTop: "-120px", textLeft: "30px"},
+  { id: 3, title: "Direct Farm Logistics", desc: "Coordinating the efficient movement of products across the distribution channels.", icon: icon3, top: "34%", left: "55%" },
+  { id: 4, title: "Secure Packaging & Fulfillment", desc: "Products are carefully packaged using eco-friendly materials and orders are prepared with attention to detail.", icon: icon4, top: "55%", left: "60%" },
+  { id: 5, title: "Final Delivery", desc: "Completing the delivery cycle by ensuring the final product safely reaches the end consumer.", icon: icon5, top: "78%", left: "54%" },
 ];
 
 const FarmtoClient = () => {
@@ -23,7 +23,6 @@ const FarmtoClient = () => {
     <Box 
       position="relative" 
       w="full" 
-      // Breakpoint adjusted from 'md' to 'lg' to ensure layout stability on tablet devices
       minH={{ base: "auto", lg: "830px" }} 
       py={{ base: 10, lg: 0 }} 
       bgImage={`url('${bgImage}')`} 
@@ -32,9 +31,6 @@ const FarmtoClient = () => {
       overflow="hidden"
     >
       <Flex 
-        // LOCKED CANVAS MECHANISM:
-        // On desktop (lg+), this creates an absolute 1200x800 container perfectly centered.
-        // By fixing the dimensions, absolute positioning inside remains stable and prevents icon drift.
         position={{ base: "relative", lg: "absolute" }} 
         top={{ base: "auto", lg: 0 }}
         left={{ base: "auto", lg: "50%" }}

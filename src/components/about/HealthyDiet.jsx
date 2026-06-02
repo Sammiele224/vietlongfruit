@@ -9,11 +9,9 @@ import {
     HStack
 } from '@chakra-ui/react';
 
-// Replace these with your actual image and icon paths!
 import dragonFruitImg from '../../assets/images/BG-full-08.jpg'; 
 import thumbsUpIcon from '../../assets/icons/Icon-11.svg';     
 
-// Feature Icons Placeholders
 import icon1 from '../../assets/icons/Icon-36.svg'; 
 import icon2 from '../../assets/icons/Icon-29.svg';  
 import icon3 from '../../assets/icons/Icon-33.svg'; 
@@ -67,7 +65,11 @@ const HealthyDiet = () => {
                         {/* RIGHT SIDE: Paragraph */}
                         <Box w={{ base: "100%", md: "55%" }} pt={{ md: 6 }}>
                             <Text color="gray.500" fontSize={{ base: "sm", md: "md" }} lineHeight="1.8">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error.
+                                Nature offers the perfect ingredients for a balanced lifestyle, and we are here to 
+                                deliver them straight to you. Our premium fruits are sustainably grown, carefully 
+                                harvested at their peak, and rigorously inspected for absolute freshness. Rich in 
+                                vital nutrients, our produce makes it effortless and enjoyable to maintain a healthy 
+                                diet. Experience the natural energy and unmatched flavor that only true quality can provide.
                             </Text>
                         </Box>
                     </Flex>
@@ -150,9 +152,9 @@ const HealthyDiet = () => {
                                         top="50%"
                                         left="50%"
                                         transform="translate(-50%, -50%)"
-                                        w="30px" // Smaller than the icon
+                                        w="30px" 
                                         h="30px"
-                                        bg="#F7D070" // A soft, warm yellow matching the design
+                                        bg="#F7D070" 
                                         borderRadius="full"
                                         zIndex={0}
                                     />
